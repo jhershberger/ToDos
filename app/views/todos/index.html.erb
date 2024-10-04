@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-12 mt-3 mb-3"> 
+    <h3>
+      To Do List 
+      <%= link_to "Create New", new_todo_path, class: "btn btn-primary", data: { turbo_frame: "todo_modal" }%>
+    </h3>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-2">
+        Title
+      </div>
+      <div class="col-2">
+        Description
+      </div>
+      <div class="col-2">
+        Category
+      </div>
+      <div class="col-2">
+        Created At
+      </div>
+      <div class="col-2">
+        Completed At
+      </div>
+      <div class="col-2">
+      </div>
+    </div>
+    <% @todos.each do |todo| %>
+      <div class="row">
+        <div class="col-2">
+          <%= todo.title %>
+        </div>
+        <div class="col-2">
+          <%= todo.description %>
+        </div>
+        <div class="col-2">
+          <%= todo.category %>
+        </div>
+        <div class="col-2">
+          <%= format_datetime(todo.created_at) %>
+        </div>
+        <div class="col-2">
+          <%= format_datetime(todo.completed_at) %>
+        </div>
+        <div class="col-2">
+           <%= link_to "View", todo_path(todo) %> | <%= link_to "Edit", edit_todo_path(todo) %> | <%= link_to "Destroy", todo_path(todo), data: { turbo_confirm: "Are you sure you wish to delete the To Do item?", turbo_method: :delete } %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+
+

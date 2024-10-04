@@ -1,0 +1,7 @@
+<div style="color: red">
+  <% if item.errors.include?(field) %>
+      <% item.errors.full_messages_for(field).each do |error_message| %>
+        <%= error_message %>.
+      <% end %>
+  <% end %>
+</div>

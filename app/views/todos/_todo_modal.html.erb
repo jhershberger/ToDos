@@ -1,0 +1,15 @@
+<%= turbo_frame_tag "todo_modal" do %>
+  <div class="modal fade" id="todoModal" tabindex="-1" data-controller="todo-modal" data-action="turbo:before-render@document->todo-modal#connect">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="newItemRemoteModalLabel"><%= title %></h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body todo_modal_body" id="todo_modal_body">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

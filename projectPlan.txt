@@ -1,0 +1,32 @@
+## Project Plan 10/3/24 ##
+
+- Introduce the core entities and their respective associations:	
+	- ToDos (title, description, status, timestamps, category, notes, completed_at, target_date)
+	- Notes (title, body, timestamps)
+	- Categories (title, description, timestamps)
+	- Project (title, target date, status, completed_at, timestamps) 
+
+
+- MVC infrastructure for basic CRUD, focused on ToDos
+	- Create a new todo
+	- Edit existing todo
+	- View todos
+	- View single todo
+	- Destroy todo
+
+- Mobile-first design using bootstrap
+
+- Add filtering using turbo/stimulus 
+	- filter by status (pending, complete)
+	- filter by date
+
+
+## Optional but would like to do ##
+
+- Test suite?
+
+- Add calendar view to see completion dates, target dates for pending projects and ToDos 
+	- Need datepicker on ToDo/Project form to select target dates 
+
+- Support for multiple users, collaboration on todos
+
