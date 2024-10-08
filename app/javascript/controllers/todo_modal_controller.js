@@ -6,7 +6,6 @@ export default class extends Controller {
     this.modal = new Modal(this.element)
     this.modal.show()
 
-
     this.element.addEventListener('turbo:submit-end', (event) => {
       console.log(event);
       if (event.detail.success) {
@@ -15,4 +14,15 @@ export default class extends Controller {
     });
   }
 
+  hideBeforeRender(event) {
+    if (this.isOpen()) {
+      event.preventDefault()
+      this.element.addEventListener('hidden.bs.modal', event.detail.resume)
+      this.modal.hide()
+    }
+  }
+
+  isOpen() {
+    return this.element.classList.contains("show")
+  }
 }

@@ -26,7 +26,7 @@ class TodosController < ApplicationController
 
   def update
     respond_to do |format|
-      if @todo.save(todo_params)
+      if @todo.update(todo_params)
         format.html { redirect_to todos_path, notice: "To-Do item successfully added" }
       else
         format.html { render :new, status: :unprocessable_entity }

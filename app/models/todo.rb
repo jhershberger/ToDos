@@ -1,7 +1,7 @@
 class Todo < ApplicationRecord
   validates_presence_of :title, :description
 
-  enum :category, [:goal, :chore, :work, :exercise]
+  enum :category, [:goal, :chore, :work, :exercise, :other]
 
 
   def category=(value)
