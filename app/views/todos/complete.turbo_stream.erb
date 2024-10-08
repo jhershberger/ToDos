@@ -1,0 +1,3 @@
+<%= turbo_stream.update "todo-row-#{@todo.id}" do %>
+  <%= render "todo", todo: @todo %>
+<% end %>

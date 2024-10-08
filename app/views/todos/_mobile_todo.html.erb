@@ -1,0 +1,18 @@
+<div class="row d-block d-md-none m-2">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= todo.title %></h5>
+      <p class="card-text"><small class="italic"><%= todo.category.titleize %></small></p>
+      <p class="card-text"><%= todo.description %></p>
+      <p class="card-text">
+        <span> Complete? </span>
+	<%= link_to todo_complete_path(todo), data: { turbo_frame: "complete", turbo_method: :post } do %>
+	  <%= check_box_tag("complete", todo.complete, todo.complete, class: "todo-select-checkbox form-check-input") %>
+	<% end %>
+      </p>
+      <p class="card-text">
+     <%= link_to "<i class='fa-solid fa-edit'></i>".html_safe, edit_todo_path(todo), data: { turbo_frame: "todo_modal" } %> <%= link_to "<i class='fa-solid fa-trash'></i>".html_safe, todo_path(todo), data: { turbo_confirm: "Are you sure you wish to delete the To Do item?", turbo_method: :delete } %>
+      </p>
+    </div>
+  </div>
+</div>

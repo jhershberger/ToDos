@@ -13,7 +13,7 @@
 
     <%= render 'form_error', item: item, field: :category %>
 
-    <%= f.select :category, @categories, class: "form-control" %>
+    <%= f.select :category, @categories, selected: item.category_before_type_cast, class: "form-control" %>
   </div>
   <div class="form-group mb-3">
     <%= f.label :description, class: "form-label" %>

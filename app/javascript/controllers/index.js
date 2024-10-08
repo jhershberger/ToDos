@@ -4,8 +4,8 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import SearchController from "./search_controller"
+application.register("search", SearchController)
 
 import TodoModalController from "./todo_modal_controller"
 application.register("todo-modal", TodoModalController)

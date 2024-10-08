@@ -1,2 +1,5 @@
-<h1>Todos#edit</h1>
-<p>Find me in app/views/todos/edit.html.erb</p>
+<%= render 'todo_modal', title: "Edit To-Do" do %>	
+
+  <%= render 'form', item: @todo %>
+
+<% end %>

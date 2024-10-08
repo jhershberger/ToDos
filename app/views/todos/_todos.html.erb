@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "todos" do %>
+  <% @todos.each do |todo| %>
+    <%= turbo_frame_tag "todo-row-#{todo.id}" do %>
+      <%= render 'todo', todo: todo %>
+    <% end %>
+  <% end %>
+<% end %>
