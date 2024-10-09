@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_03_212716) do
-  create_table "todos", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2024_10_08_222436) do
+  create_table "projects", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.boolean "complete"
     t.datetime "completed_at"
-    t.datetime "target_date"
-    t.integer "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+# Could not dump table "todos" because of following StandardError
+#   Unknown type 'project_id' for column 'integer'
 
 end

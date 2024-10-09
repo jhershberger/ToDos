@@ -4,6 +4,11 @@ class TodosController < ApplicationController
 
   def new
     @todo = Todo.new
+    @project = Project.new
+    @project.todos << @todo
+    if params[:type].present? 
+      @type = params[:type]
+    end
   end
 
   def create
@@ -72,9 +77,6 @@ class TodosController < ApplicationController
 
   end
 
-  def add_note
-  end
-  
   def complete
     @todo = Todo.find(params[:todo_id])
 

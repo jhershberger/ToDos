@@ -1,5 +1,15 @@
-<%= render 'todo_modal', title: "New To-Do" do %>	
-
-  <%= render 'form', item: @todo %>
-
+<% if @type.present? %>
+  <% if @type == "Todo" %>
+    <%= render 'todo_modal', title: "New To-Do" do %>	
+      <%= render 'form', item: @todo %>
+    <% end %>
+  <% else %>
+    <%= render 'todo_modal', title: "New Project" do %>	
+      <%= render 'project_form', item: @project %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= render 'todo_modal', title: "Select an option" do %>
+    <%= render 'project_choice' %>
+  <% end %>
 <% end %>

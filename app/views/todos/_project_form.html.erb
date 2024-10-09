@@ -1,0 +1,42 @@
+<%= form_with model: item do |f| %>
+
+  <div class="form-group mb-3">
+    <%= f.label :title, class: "form-label" %>
+
+    <%= render 'form_error', item: item, field: :title %>
+
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= f.label :description, class: "form-label" %>
+
+    <%= render 'form_error', item: item, field: :description %>
+
+    <%= f.text_area :description, rows: 3, class: "form-control" %>
+  </div>
+  <div class="form-group mb-3">
+    <h5>To-Dos</h5>
+  </div>
+  <%= turbo_frame_tag f.field_id(:todos) do %>
+    <%= f.fields_for :todos do |t| %>
+      <div class="row">
+        <div class="form-group mb-3 col-4">
+          <%= t.label :title, class: "form-label" %>
+          <%= t.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group mb-3 col-4">
+          <%= t.label :category, class: "form-label" %>
+          <%= t.select :category, @categories, class: "form-control" %>
+        </div>
+        <div class="form-group mb-3 col-4">
+          <%= t.label :description, class: "form-label" %>
+          <%= t.text_field :description, class: "form-control" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <%= f.submit "Add To-Do", class: "btn btn-default",  data: {turbo_frame: f.field_id(:todos)},  name: "add_todo" %>
+
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
