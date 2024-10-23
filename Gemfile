@@ -30,6 +30,7 @@ gem "cssbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem 'font-awesome-sass'
+#gem 'will_paginate'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
