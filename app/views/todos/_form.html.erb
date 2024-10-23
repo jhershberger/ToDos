@@ -1,26 +1,26 @@
 <%= form_with model: item do |f| %>
 
   <div class="form-group mb-3">
-    <%= f.label :title, class: "form-label" %>
+    <%= f.label "Title*", class: "form-label" %>
 
     <%= render 'form_error', item: item, field: :title %>
 
-    <%= f.text_field :title, class: "form-control" %>
+    <%= f.text_field :title, class: "form-control #{item.errors.include?(:title) ? 'border border-danger' : ''}" %>
   </div>
 
   <div class="form-group mb-3">
-    <%= f.label :category, class: "form-label" %>
+    <%= f.label "Category", class: "form-label" %>
 
     <%= render 'form_error', item: item, field: :category %>
 
     <%= f.select :category, @categories, selected: item.category_before_type_cast, class: "form-control" %>
   </div>
   <div class="form-group mb-3">
-    <%= f.label :description, class: "form-label" %>
+    <%= f.label "Description*", class: "form-label" %>
 
     <%= render 'form_error', item: item, field: :description %>
 
-    <%= f.text_area :description, rows: 3, class: "form-control" %>
+    <%= f.text_area :description, rows: 3, class: "form-control #{item.errors.include?(:description) ? 'border border-danger' : ''}" %>
   </div>
 
   <%= f.submit "Save", class: "btn btn-primary" %>

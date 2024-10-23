@@ -70,6 +70,8 @@ class TodosController < ApplicationController
     end
 
 
+    #@todos = @todos.paginate(page: params[:page], per_page: 5)
+
   end
 
   def add_note
